@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <sys/stat.h>
-#include <sys/types.h>
+// #include <sys/stat.h>
+// #include <sys/types.h>
 // #include <unistd.h>
-#include <fcntl.h>
-#include <stdint.h>
+// #include <fcntl.h>
+// #include <stdint.h>
 #include <string.h>
 
 #define ALPHABET "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM[]{}<>()*#"
@@ -15,7 +15,6 @@
 					 "\tpwdgen - generates a four character password from the standard alphabet\n"
 
 char *get_random_string(const char *alphabet, int quantity) {
-	// printf("%s\n%ld\n", alphabet, strlen(alphabet));
 	srand(time(NULL));
 	char *str = malloc(sizeof(char*) * quantity);
 	for (int i = 0; i < quantity; i++) {
