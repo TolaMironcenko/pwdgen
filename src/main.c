@@ -9,6 +9,10 @@
 #include <string.h>
 
 #define ALPHABET "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM[]{}<>()*#"
+#define HELP_MESSAGE "\tpwdgen <quantity> - generates a password of the given size from the standard alphabet\n"\
+					 "\tpwdgen <alphabet> - generates four characters from the given alphabet\n"\
+					 "\tpwdgen <alphabet> <quantity> - generates a password of the given length from the given alphabet\n"\
+					 "\tpwdgen - generates a four character password from the standard alphabet\n"
 
 char *get_random_string(const char *alphabet, int quantity) {
 	// printf("%s\n%ld\n", alphabet, strlen(alphabet));
@@ -47,7 +51,10 @@ char *get_random_string(const char *alphabet, int quantity) {
 
 int main(int argc, char *argv[]) {
 	if (argc == 2) {
-		if (atoi(argv[1]) > 0) {
+		if (!strcmp(argv[1], "-h")) {
+			printf("%s\n", HELP_MESSAGE);
+			return 0;
+		} else if (atoi(argv[1]) > 0) {
 			int quantity = atoi(argv[1]);
 			char *pwd = get_random_string(ALPHABET, quantity);
 			printf("Password -> %s\n", pwd);
@@ -80,6 +87,7 @@ int main(int argc, char *argv[]) {
 			// printf("%s\n", get_file_extension(argv[1]));
 			char *pwd = get_random_string(argv[1], 4);
 			printf("Password -> %s\n", pwd);
+			return 0;
 		}
 	}
 	if (argc == 3) {
@@ -87,9 +95,10 @@ int main(int argc, char *argv[]) {
 		char *alphabet = argv[1];
 		char *pwd = get_random_string(alphabet, quantity);
 		printf("Password -> %s\n", pwd);
+		return 0;
 	}
-	// char *pwd = get_random_string(ALPHABET, 4);
-	// printf("Password -> %s\n", pwd);
+	char *pwd = get_random_string(ALPHABET, 4);
+	printf("Password -> %s\n", pwd);
 	return 0;
 }
 
