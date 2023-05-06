@@ -7,6 +7,7 @@
 // #include <fcntl.h>
 // #include <stdint.h>
 #include <string.h>
+#include "colors.h"
 
 #define ALPHABET "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM[]{}<>()*#"
 #define HELP_MESSAGE "\tpwdgen <quantity> - generates a password of the given size from the standard alphabet\n"\
@@ -56,7 +57,7 @@ int main(int argc, char *argv[]) {
         } else if (atoi(argv[1]) > 0) {
             int quantity = atoi(argv[1]);
             char *pwd = get_random_string(ALPHABET, quantity);
-            printf("Password -> %s\n", pwd);
+            printf("%sPassword %s->%s %s\n", GREEN, YELLOW, BIWHITE, pwd);
             return 0;
         } else if (atoi(argv[1]) == 0) {
             // char *file_extension = get_file_extension(argv[1]);
@@ -85,7 +86,8 @@ int main(int argc, char *argv[]) {
             // }
             // printf("%s\n", get_file_extension(argv[1]));
             char *pwd = get_random_string(argv[1], 4);
-            printf("Password -> %s\n", pwd);
+            // printf("Password -> %s\n", pwd);
+            printf("%sPassword %s->%s %s\n", GREEN, YELLOW, BIWHITE, pwd);
             return 0;
         }
     }
@@ -93,11 +95,13 @@ int main(int argc, char *argv[]) {
         int quantity = atoi(argv[2]);
         char *alphabet = argv[1];
         char *pwd = get_random_string(alphabet, quantity);
-        printf("Password -> %s\n", pwd);
+        // printf("Password -> %s\n", pwd);
+        printf("%sPassword %s->%s %s\n", GREEN, YELLOW, BIWHITE, pwd);
         return 0;
     }
     char *pwd = get_random_string(ALPHABET, 4);
-    printf("Password -> %s\n", pwd);
+    // printf("Password -> %s\n", pwd);
+    printf("%sPassword %s->%s %s\n", GREEN, YELLOW, BIWHITE, pwd);
     return 0;
 }
 
