@@ -19,4 +19,4 @@ clean:
 	@rm -rf out/$(OUT)
 
 install:
-	@sudo cp -rf out/$(OUT) $(DESTDIR)
+	@cp -rf out/$(OUT) $(DESTDIR)
